@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Tarefa</title>
+</head>
+<body>
+<h1>Nova Tarefa</h1>
+<form th:action="@{/task}" th:object="${tarefa}" method="post">
+    <div>
+        <label>Titulo:</label>
+        <input type="text" th:field="*{title}">
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    </div>
+    <br />
+    <div>
+        <label>Descrição:</label>
+        <input type="text" th:field="*{description}">
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+    </div>
+    <br />
+    <div>
+        <label>Concluída</label>
+        <input type="checkbox" th:field="*{completed}">
+    </div>
+    <br />
+    <button type="submit">Salvar</button>
+    <a th:href="@{/task}">Voltar</a>
+
+</form>
+
+
+</body>
+</html>
